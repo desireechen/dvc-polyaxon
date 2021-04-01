@@ -4,7 +4,7 @@ In this June 2019 paper (https://machinelearning.apple.com/research/data-platfor
 
 This is a sample of the CSV file.
 
-![image](uploads/5215296c865ed85be56b1b21709860d7/image.png)
+![image](https://user-images.githubusercontent.com/51873343/113264451-9347ae00-9305-11eb-8228-c0bda6b58189.png)
 
 ### Prerequisites
 
