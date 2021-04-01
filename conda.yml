@@ -1,0 +1,10 @@
+name: polyaxon-prototype
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.6.7
+  - pip=19.0.3
+  - pip:
+    - modin==0.5.3
+# Feel free to change the version of any package

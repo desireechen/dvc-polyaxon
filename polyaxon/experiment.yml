@@ -1,0 +1,18 @@
+---
+version: 1
+
+kind: experiment
+
+build:
+  dockerfile: polyaxon/docker/experiment.df
+  context: .
+
+environment:
+  persistence:
+    data: ["data"]
+
+logging:
+  level: DEBUG
+
+run:
+  cmd: python -m src.experiment

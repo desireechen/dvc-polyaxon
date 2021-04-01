@@ -1,0 +1,30 @@
+---
+version: 1
+
+kind: group
+
+build:
+  dockerfile: polyaxon/docker/experiment.df
+
+hptuning:
+    concurrency: 2
+    random_search:
+        n_experiments: 4
+    
+    matrix:
+        n_estimators:
+          values: [5, 10, 25, 50, 100, 250]
+          
+        max_depth:
+          values: [5, 10, 25, 50]
+
+environment:
+  resources:
+   cpu:
+     limits: 1
+  persistence:
+    data: ["data"]
+
+run:
+  cmd: python -m src.experiment --n_estimators={{ n_estimators }} \
+                                --max_depth={{ max_depth }}

@@ -1,0 +1,19 @@
+# change base image as required
+FROM registry.singapore.net/aiap/polyaxon/pytorch-tf2-cpu:latest
+
+ARG USER="polyaxon"
+ARG WORK_DIR="/home/$USER"
+
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
+WORKDIR $WORK_DIR
+USER $USER
+
+COPY build/conda.yml .
+#COPY conda.yml .
+RUN conda env update -f conda.yml -n base && \
+    rm conda.yml
+
+WORKDIR /code
+
+COPY --chown=$USER:$USER build .
